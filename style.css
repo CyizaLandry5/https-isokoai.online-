@@ -1,0 +1,428 @@
+ :root {
+     --accent-1: #00d4ff;
+     --accent-2: #006cff;
+     --deep-blue: #08193a;
+     /* used for dark background instead of black */
+     --glass-light: rgba(255, 255, 255, 0.75);
+     --glass-dark: rgba(255, 255, 255, 0.08);
+ }
+
+ html,
+ body {
+     height: 100%;
+     margin: 0;
+     font-family: "Poppins", sans-serif;
+     transition: background .3s, color .3s;
+ }
+
+ /* Themes */
+ body.light {
+     background: linear-gradient(135deg, #e9f2ff, #f6fbff);
+     color: #0b1b32;
+ }
+
+ body.dark {
+     background: radial-gradient(circle at top, var(--deep-blue), #001025);
+     color: #e6f7ff;
+ }
+
+ /* Centering */
+ .page-wrap {
+     min-height: 100vh;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 30px;
+     position: relative;
+ }
+
+ /* Animated orbs */
+ .orb {
+     position: absolute;
+     width: 360px;
+     height: 360px;
+     border-radius: 50%;
+     filter: blur(90px);
+     z-index: 0;
+     top: 5%;
+     left: 6%;
+     opacity: .9;
+     transform: translate3d(0, 0, 0);
+     transition: background .3s;
+ }
+
+ .orb2 {
+     position: absolute;
+     width: 320px;
+     height: 320px;
+     border-radius: 50%;
+     filter: blur(80px);
+     z-index: 0;
+     right: 6%;
+     bottom: 6%;
+     opacity: .9;
+     transform: translate3d(0, 0, 0);
+     transition: background .3s;
+ }
+
+ body.dark .orb {
+     background: rgba(0, 184, 255, 0.14);
+ }
+
+ body.dark .orb2 {
+     background: rgba(132, 0, 255, 0.12);
+ }
+
+ body.light .orb {
+     background: rgba(0, 119, 255, 0.12);
+ }
+
+ body.light .orb2 {
+     background: rgba(255, 77, 166, 0.10);
+ }
+
+ /* Card */
+ .auth-card {
+     position: relative;
+     z-index: 2;
+     border-radius: 18px;
+     padding: 26px;
+     width: 100%;
+     max-width: 760px;
+     display: flex;
+     gap: 10px;
+     align-items: stretch;
+     box-sizing: border-box;
+ }
+
+ body.light .auth-card {
+     background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(250, 250, 255, 0.85));
+     box-shadow: 0 10px 30px rgba(5, 30, 80, 0.06);
+ }
+
+ body.dark .auth-card {
+     background: linear-gradient(180deg, var(--glass-dark), rgba(255, 255, 255, 0.03));
+     box-shadow: 0 12px 30px rgba(0, 110, 180, 0.12);
+     backdrop-filter: blur(10px);
+ }
+
+ /* Left column - visual */
+ .auth-left {
+     flex: 1.25;
+     padding: 22px;
+     border-radius: 14px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     gap: 16px;
+ }
+
+ .auth-right {
+     flex: 1;
+     padding: 22px;
+     border-radius: 14px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     gap: 14px;
+ }
+
+ /* Logo placeholder */
+ .logo-circle {
+     width: 96px;
+     height: 96px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-weight: 700;
+     font-size: 28px;
+     margin: 0 auto;
+     box-shadow: 0 8px 30px rgba(0, 150, 255, 0.12);
+ }
+
+ body.light .logo-circle {
+     background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+     color: white;
+ }
+
+ body.dark .logo-circle {
+     background: linear-gradient(135deg, var(--accent-2), var(--accent-1));
+     color: white;
+ }
+
+ h1.title {
+     text-align: center;
+     margin: 0;
+     font-weight: 700;
+     font-size: 22px;
+ }
+
+ p.subtitle {
+     text-align: center;
+     margin: 0;
+     color: inherit;
+     opacity: 0.85;
+     font-weight: 500;
+     font-size: 14px;
+ }
+
+ /* form inputs */
+ .form-control {
+     background: transparent;
+     border-radius: 8px;
+     height: 46px;
+     padding: 10px 12px;
+     border: 1px solid rgba(255, 255, 255, 0.12);
+     color: inherit;
+     transition: border .18s, box-shadow .18s;
+ }
+
+ body.light .form-control {
+     border: 1px solid rgba(10, 25, 50, 0.12);
+     color: #0b1b32;
+ }
+
+ body.dark .form-control {
+     border: 1px solid rgba(255, 255, 255, 0.12);
+     color: #e6f7ff;
+     background: rgba(255, 255, 255, 0.02);
+ }
+
+ .form-control:focus {
+     outline: none;
+     box-shadow: 0 6px 16px rgba(3, 40, 95, 0.06);
+     border-color: var(--accent-1);
+ }
+
+ label.form-label {
+     font-weight: 600;
+     font-size: 13px;
+     display: block;
+     margin-bottom: 6px;
+     color: inherit;
+     opacity: 0.95;
+ }
+
+ .btn-primary.custom {
+     width: 100%;
+     padding: 10px;
+     border-radius: 10px;
+     border: none;
+     font-weight: 700;
+ }
+
+ body.light .btn-primary.custom {
+     background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
+     color: #fff;
+ }
+
+ body.dark .btn-primary.custom {
+     background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+     color: #002a43;
+ }
+
+ .linkish {
+     background: none;
+     border: none;
+     color: inherit;
+     text-decoration: underline;
+     padding: 0;
+ }
+
+ .small-muted {
+     font-size: 12px;
+     opacity: 0.85;
+ }
+
+ /* small width tweaks: we want the right side (forms) to be slightly wider on big screens: */
+ @media(min-width:1100px) {
+     .auth-card {
+         max-width: 980px;
+     }
+
+     .auth-left {
+         flex: 1;
+     }
+
+     .auth-right {
+         flex: 1.1;
+     }
+ }
+
+ @media(min-width:1400px) {
+     .auth-card {
+         max-width: 1100px;
+     }
+
+     .auth-left {
+         flex: 1;
+     }
+
+     .auth-right {
+         flex: 1.2;
+     }
+ }
+
+ /* Make card slightly taller but not too much */
+ @media(min-width:768px) {
+     .auth-card {
+         padding: 30px;
+     }
+ }
+
+ /* responsive stacking */
+ @media(max-width:767px) {
+     .auth-card {
+         flex-direction: column;
+         padding: 18px;
+     }
+
+     .logo-circle {
+         width: 84px;
+         height: 84px;
+     }
+ }
+
+ /* Terms modal styling */
+ .terms-body {
+     height: 260px;
+     overflow: auto;
+     padding: 12px;
+     border: 1px solid rgba(0, 0, 0, 0.06);
+     background: rgba(255, 255, 255, 0.02);
+     border-radius: 8px;
+ }
+
+ /* error message */
+ .form-error {
+     color: #ff6b6b;
+     font-weight: 600;
+     font-size: 13px;
+     margin-top: 8px;
+     display: none;
+ }
+
+
+
+ .dev-img {
+     width: 36px;
+     height: 36px;
+     border-radius: 50%;
+     object-fit: cover;
+     border: 2px solid rgba(0, 150, 255, 0.18);
+ }
+
+ .footer-text {
+     font-size: 13px;
+     font-weight: 600;
+     display: flex;
+     gap: 8px;
+     align-items: center;
+ }
+
+ .footer-text .icons {
+     display: flex;
+     gap: 10px;
+     align-items: center;
+ }
+
+ /* small clickable icons */
+ .footer-icon {
+     width: 20px;
+     height: 20px;
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 4px;
+ }
+
+ /* ---- */
+
+ .dev-rights {
+     font-size: 12px;
+     text-align: center;
+     color: inherit;
+     /* will inherit body color (dark/light) */
+ }
+
+ .dev-info-container {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     flex-wrap: wrap;
+     justify-content: flex-start;
+ }
+
+ .dev-img {
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     object-fit: cover;
+     border: 2px solid rgba(0, 150, 255, 0.18);
+ }
+
+ .dev-details {
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     flex-wrap: wrap;
+ }
+
+ .dev-name {
+     font-weight: 600;
+ }
+
+ .dev-icons a {
+     margin: 0 4px;
+     color: inherit;
+     transition: transform 0.2s, color 0.2s;
+ }
+
+ .dev-icons a:hover {
+     transform: scale(1.2);
+     color: #00d4ff;
+ }
+
+ .dev-hr {
+     margin: 8px 0;
+     border: none;
+     border-top: 1px solid rgba(255, 255, 255, 0.2);
+ }
+
+ /* Responsive */
+ @media(max-width: 600px) {
+     .dev-info-container {
+         justify-content: center;
+     }
+
+     .dev-details {
+         justify-content: center;
+     }
+ }
+
+ /* Buttons */
+ /* Theme-adaptive Login/Signup buttons */
+ #toggle-to-login,
+ #toggle-to-signup {
+     transition: background 0.3s, color 0.3s, border 0.3s;
+ }
+
+ body.dark #toggle-to-login,
+ body.dark #toggle-to-signup {
+     color: #fff;
+     border: 1px solid rgba(255, 255, 255, 0.3);
+     background: transparent;
+ }
+
+ body.light #toggle-to-login,
+ body.light #toggle-to-signup {
+     color: #0b1b32;
+     border: 1px solid rgba(10, 25, 50, 0.2);
+     background: transparent;
+ }
+
+ #toggle-to-login:hover,
+ #toggle-to-signup:hover {
+     transform: scale(1.05);
+ }
